@@ -25,10 +25,10 @@
         // amd
         define(['emailjs-tcp-socket-tls'], factory.bind(null, navigator));
     } else if (typeof exports === 'object' && typeof navigator !== 'undefined') {
-        if (process.versions.nw) {
+        if (process && process.versions && process.versions.nw) {
             // common.js for electron
             module.exports = factory(navigator, null, nw.require('net'), nw.require('tls'));
-        } else if (process.versions.electron || process.versions['node-webkit']) {
+        } else if (process && process.versions && process.versions.electron || process.versions['node-webkit']) {
             // common.js for electron
             module.exports = factory(navigator, null, require('net'), require('tls'));
         } else {
